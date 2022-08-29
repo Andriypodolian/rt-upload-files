@@ -1,0 +1,48 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "rt-upload-file": {
+      "projectType": "library",
+      "root": "projects/rt-upload-file",
+      "sourceRoot": "projects/rt-upload-file/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/rt-upload-file/tsconfig.lib.json",
+            "project": "projects/rt-upload-file/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/rt-upload-file/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/rt-upload-file/src/test.ts",
+            "tsConfig": "projects/rt-upload-file/tsconfig.spec.json",
+            "karmaConfig": "projects/rt-upload-file/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/rt-upload-file/tsconfig.lib.json",
+              "projects/rt-upload-file/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "rt-upload-file"
+}
