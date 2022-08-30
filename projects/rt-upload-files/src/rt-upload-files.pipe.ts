@@ -12,3 +12,12 @@ export class SizeFormat implements PipeTransform {
     }
   }
 }
+
+@Pipe({name: 'typeof'})
+export class TypeOf implements PipeTransform {
+  transform(value: any): string {
+    return typeof value;
+  }
+}
+
+
