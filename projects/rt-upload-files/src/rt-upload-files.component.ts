@@ -11,7 +11,7 @@ import {FileUploadError, FormatsFile} from "./rt-upload-files.simbol";
 })
 export class RtUploadFilesComponent {
   @Input() disabled = false;
-  @Input() errorServer: FileUploadError | string |null = null;
+  @Input() errorServer: FileUploadError | string[] |null = null;
   errorFrontend: FileUploadError | null = null;
   @Input() formats: FormatsFile[] = [];
   @Input() progress = 0;

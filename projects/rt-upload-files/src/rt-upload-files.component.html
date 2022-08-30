@@ -130,7 +130,7 @@
         <div class="error__info">
             <span class="error__title" *ngIf="errorServer.title">{{errorServer.title}}</span>
             <span class="error__message" *ngIf="errorServer.message">{{errorServer.message}}</span>
-            <span class="error__message" *ngIf="(errorServer | typeof) === 'string'">{{errorServer}}</span>
+            <span class="error__message" *ngIf="errorServer.length">{{errorServer[0]}}</span>
         </div>
         <button class="error__close" (click)="clearErrorServer()">
             <!--      <img src="assets/close.svg">-->
