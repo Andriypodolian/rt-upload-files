@@ -7,7 +7,7 @@ import {FileUploadError, FormatsFile} from "./rt-upload-files.simbol";
   selector: 'rt-upload-files',
   templateUrl: './rt-upload-files.component.html',
   styleUrls: ['./rt-upload-files.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  // changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class RtUploadFilesComponent {
   @Input() disabled = false;
@@ -45,7 +45,7 @@ export class RtUploadFilesComponent {
       }
     }
     this.outFile.emit(file);
-    this.isUploaded = true;
+    this.cd.detectChanges();
   }
 
   public openBrowser() {
@@ -55,6 +55,7 @@ export class RtUploadFilesComponent {
   public uploadBrowser(event: any) {
     const file = event.target.files[0];
     this.emitFile(file);
+    this.cd.detectChanges();
   }
 
   public clearErrorFrontend() {
