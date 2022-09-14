@@ -22,10 +22,11 @@
                 <div class="upload-text upload-zone__upload-text">
                     Drop your file here or <span class="upload-link" (click)="openBrowser()">Browse files</span>
                 </div>
-                <div class="upload-under-text upload-zone__upload-under-text">Supported file types: docx, pdf</div>
+                <div class="upload-under-text upload-zone__upload-under-text">{{subtitle}}</div>
             </div>
         </ng-template>
     </ngx-file-drop>
+
 
 
     <div class="uploading" *ngIf="!errorServer && !errorFrontend && (outFile | async) as file">
