@@ -1,5 +1,4 @@
 <div class="center">
-    <div class="label last-name__label">You can also upload your CV here</div>
     <ngx-file-drop
             *ngIf="!errorServer && !errorFrontend && ((outFile | async) === null || (outFile | async) === undefined)"
             [accept]="formats.join(', ')"
