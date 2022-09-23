@@ -66,7 +66,7 @@
         </div>
 
         <div class="uploading__done" *ngIf="isUploaded">
-            <img *ngIf="previewImgSrc" [src]="previewImgSrc" alt="">
+            <img class="preview-img" *ngIf="previewImgSrc" [src]="previewImgSrc" alt="">
             <svg *ngIf="!previewImgSrc" width="22" height="28" viewBox="0 0 22 28" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M13.6673 0.666687H3.00065C2.29341 0.666687 1.61513 0.947638 1.11503 1.44774C0.614936 1.94783 0.333984 2.62611 0.333984 3.33335V24.6667C0.333984 25.3739 0.614936 26.0522 1.11503 26.5523C1.61513 27.0524 2.29341 27.3334 3.00065 27.3334H19.0007C19.7079 27.3334 20.3862 27.0524 20.8863 26.5523C21.3864 26.0522 21.6673 25.3739 21.6673 24.6667V8.66669L13.6673 0.666687ZM19.0007 24.6667H3.00065V3.33335H12.334V10H19.0007V24.6667Z"
                       fill="#7044A3"/>
