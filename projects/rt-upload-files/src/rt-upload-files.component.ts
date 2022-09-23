@@ -17,6 +17,7 @@ export class RtUploadFilesComponent {
   @Input() progress = 0;
   @Input() isUploaded = false;
   @Input() subtitle = '';
+  @Input() previewImgSrc = null;
   @Output() outFile = new EventEmitter<File | null>();
   @Output() removeFile = new EventEmitter<null>();
   @ViewChild('inputFile') inputFileRef!: ElementRef;

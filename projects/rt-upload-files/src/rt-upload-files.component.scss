@@ -138,6 +138,7 @@
     width: 100%;
     display: flex;
     gap: 15px;
+    align-items: center;
   }
 
   .uploading__header {
@@ -229,5 +230,8 @@
 }
 
 
-
+.rt-upload-files__button {
+  background-color: #ffffff00;
+  border: none;
+}
 
