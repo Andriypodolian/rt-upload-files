@@ -1,6 +1,6 @@
 {
   "name": "rt-upload-files",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "peerDependencies": {
     "@angular/common": "^12.2.16",
     "@angular/core": "^12.2.16"
