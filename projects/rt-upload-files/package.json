@@ -4,20 +4,25 @@
   "license": "MIT",
   "keywords": ["upload", "uploads", "drag and drop"],
     "author": "A.A. Podolian",
-    "description": "Angular 12 component for uploading files",
+    "description": "Angular 14 component for uploading files",
   "repository": {
     "url": "git+https://github.com/Andriypodolian/rt-upload-files.git",
     "type": "git"
   },
   "bugs": {
-    "url": "git+https://github.com/Andriypodolian/rt-upload-files/issues",
+    "url": "git+https://github.com/Andriypodolian/rt-upload-files/issues"
+  },
+  "scripts": {
+    "lib:build": "ng build rt-upload-files",
+    "lib:watch": "ng build rt-upload-files --watch",
+    "lib:publish": "npm run lib:build && cd ../../dist/rt-upload-files && npm pack && npm publish"
   },
   "peerDependencies": {
-    "@angular/common": "^12.2.16",
-    "@angular/core": "^12.2.16"
+    "@angular/common": "^14.3.0",
+    "@angular/core": "^14.3.0"
   },
   "dependencies": {
-    "ngx-file-drop": "^12.0.0",
-    "tslib": "^2.0.0"
+    "ngx-file-drop": "^14.0.2",
+    "tslib": "^2.5.3"
   }
 }

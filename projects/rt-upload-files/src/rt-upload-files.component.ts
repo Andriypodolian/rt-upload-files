@@ -7,11 +7,10 @@ import {FileUploadError, FormatsFile} from "./rt-upload-files.simbol";
   selector: 'rt-upload-files',
   templateUrl: './rt-upload-files.component.html',
   styleUrls: ['./rt-upload-files.component.scss'],
-  // changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class RtUploadFilesComponent {
   @Input() disabled = false;
-  @Input() errorServer: FileUploadError | string[] |null = null;
+  @Input() errorServer: FileUploadError | null = null;
   errorFrontend: FileUploadError | null = null;
   @Input() formats: FormatsFile[] = [];
   @Input() progress = 0;

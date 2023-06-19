@@ -27,73 +27,74 @@
     </ngx-file-drop>
 
 
-    <div class="uploading" *ngIf="!errorServer && !errorFrontend && (outFile | async) as file">
-        <div class="uploading__process" *ngIf="!isUploaded">
-            <!--      <img src="assets/file.svg">-->
-            <svg width="22" height="28" viewBox="0 0 22 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M13.6673 0.666626H3.00065C2.29341 0.666626 1.61513 0.947577 1.11503 1.44767C0.614936 1.94777 0.333984 2.62605 0.333984 3.33329V24.6666C0.333984 25.3739 0.614936 26.0521 1.11503 26.5522C1.61513 27.0523 2.29341 27.3333 3.00065 27.3333H19.0007C19.7079 27.3333 20.3862 27.0523 20.8863 26.5522C21.3864 26.0521 21.6673 25.3739 21.6673 24.6666V8.66663L13.6673 0.666626ZM19.0007 24.6666H3.00065V3.33329H12.334V9.99996H19.0007V24.6666Z"
-                      fill="#777777"/>
-            </svg>
-
-            <div class="uploading__detail">
-                <div class="uploading__header">
-                    <span class="uploading__title">{{file.name}}</span>
-                    <!--          <img src="assets/done.svg" *ngIf="progress === 100">-->
-                    <svg *ngIf="progress === 100" width="14" height="11" viewBox="0 0 14 11" fill="none"
-                         xmlns="http://www.w3.org/2000/svg">
-                        <path d="M13.75 1.25L4.75 10.25L0.625 6.125L1.6825 5.0675L4.75 8.1275L12.6925 0.192505L13.75 1.25Z"
-                              fill="#02A876"/>
-                    </svg>
-
-                </div>
-
-                <div class="progress uploading__progress">
-                    <div class="progress__loader" [ngStyle]="{'width':progress+'%'}"></div>
-                </div>
-
-                <div class="uploading__subtitle">
-                    <span class="uploading__left-subtitle">{{file.size | sizeFormat}}</span>
-                    <div class="uploading__right-subtitle">
-                        <span class="uploading__state">Uploading...</span>
-                        <span class="uploading__procentage uploading__procentage_primary"
-                              *ngIf="progress<100">{{progress}}%</span>
-                        <span class="uploading__procentage uploading__procentage_success"
-                              *ngIf="progress===100">{{progress}}
-                            %</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="uploading__done" *ngIf="isUploaded">
-            <img class="preview-img" *ngIf="previewImgSrc" [src]="previewImgSrc" alt="">
-            <svg *ngIf="!previewImgSrc" width="22" height="28" viewBox="0 0 22 28" fill="none"
-                 xmlns="http://www.w3.org/2000/svg">
-                <path d="M13.6673 0.666687H3.00065C2.29341 0.666687 1.61513 0.947638 1.11503 1.44774C0.614936 1.94783 0.333984 2.62611 0.333984 3.33335V24.6667C0.333984 25.3739 0.614936 26.0522 1.11503 26.5523C1.61513 27.0524 2.29341 27.3334 3.00065 27.3334H19.0007C19.7079 27.3334 20.3862 27.0524 20.8863 26.5523C21.3864 26.0522 21.6673 25.3739 21.6673 24.6667V8.66669L13.6673 0.666687ZM19.0007 24.6667H3.00065V3.33335H12.334V10H19.0007V24.6667Z"
-                      fill="#7044A3"/>
-            </svg>
-
-            <div class="uploading__detail">
-                <div class="uploading__header">
-                    <span class="uploading__title">{{file.name}}</span>
-                </div>
-
-                <div class="uploading__subtitle">
-                    <span class="uploading__left-subtitle">{{file.size | sizeFormat}}</span>
-                    <div class="uploading__right-subtitle">
-                    </div>
-                </div>
-            </div>
-
-
-            <button class="rt-upload-files__button" (click)="_removeFile()">
-                <svg width="14" height="18" viewBox="0 0 14 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M1 16C1 16.5304 1.21071 17.0391 1.58579 17.4142C1.96086 17.7893 2.46957 18 3 18H11C11.5304 18 12.0391 17.7893 12.4142 17.4142C12.7893 17.0391 13 16.5304 13 16V4H1V16ZM3 6H11V16H3V6ZM10.5 1L9.5 0H4.5L3.5 1H0V3H14V1H10.5Z"
+    <div class="uploading" *ngIf="!errorServer && !errorFrontend && (outFile | async)">
+        <ng-container *ngIf="(outFile | async) as file">
+            <div class="uploading__process" *ngIf="!isUploaded">
+                <!--      <img src="assets/file.svg">-->
+                <svg width="22" height="28" viewBox="0 0 22 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M13.6673 0.666626H3.00065C2.29341 0.666626 1.61513 0.947577 1.11503 1.44767C0.614936 1.94777 0.333984 2.62605 0.333984 3.33329V24.6666C0.333984 25.3739 0.614936 26.0521 1.11503 26.5522C1.61513 27.0523 2.29341 27.3333 3.00065 27.3333H19.0007C19.7079 27.3333 20.3862 27.0523 20.8863 26.5522C21.3864 26.0521 21.6673 25.3739 21.6673 24.6666V8.66663L13.6673 0.666626ZM19.0007 24.6666H3.00065V3.33329H12.334V9.99996H19.0007V24.6666Z"
                           fill="#777777"/>
                 </svg>
-            </button>
-        </div>
 
+                <div class="uploading__detail">
+                    <div class="uploading__header">
+                        <span class="uploading__title">{{file.name}}</span>
+                        <!--          <img src="assets/done.svg" *ngIf="progress === 100">-->
+                        <svg *ngIf="progress === 100" width="14" height="11" viewBox="0 0 14 11" fill="none"
+                             xmlns="http://www.w3.org/2000/svg">
+                            <path d="M13.75 1.25L4.75 10.25L0.625 6.125L1.6825 5.0675L4.75 8.1275L12.6925 0.192505L13.75 1.25Z"
+                                  fill="#02A876"/>
+                        </svg>
+
+                    </div>
+
+                    <div class="progress uploading__progress">
+                        <div class="progress__loader" [ngStyle]="{'width':progress+'%'}"></div>
+                    </div>
+
+                    <div class="uploading__subtitle">
+                        <span class="uploading__left-subtitle">{{file.size | sizeFormat}}</span>
+                        <div class="uploading__right-subtitle">
+                            <span class="uploading__state">Uploading...</span>
+                            <span class="uploading__procentage uploading__procentage_primary"
+                                  *ngIf="progress<100">{{progress}}%</span>
+                            <span class="uploading__procentage uploading__procentage_success"
+                                  *ngIf="progress===100">{{progress}}
+                                %</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="uploading__done" *ngIf="isUploaded">
+                <img class="preview-img" *ngIf="previewImgSrc" [src]="previewImgSrc" alt="">
+                <svg *ngIf="!previewImgSrc" width="22" height="28" viewBox="0 0 22 28" fill="none"
+                     xmlns="http://www.w3.org/2000/svg">
+                    <path d="M13.6673 0.666687H3.00065C2.29341 0.666687 1.61513 0.947638 1.11503 1.44774C0.614936 1.94783 0.333984 2.62611 0.333984 3.33335V24.6667C0.333984 25.3739 0.614936 26.0522 1.11503 26.5523C1.61513 27.0524 2.29341 27.3334 3.00065 27.3334H19.0007C19.7079 27.3334 20.3862 27.0524 20.8863 26.5523C21.3864 26.0522 21.6673 25.3739 21.6673 24.6667V8.66669L13.6673 0.666687ZM19.0007 24.6667H3.00065V3.33335H12.334V10H19.0007V24.6667Z"
+                          fill="#7044A3"/>
+                </svg>
+
+                <div class="uploading__detail">
+                    <div class="uploading__header">
+                        <span class="uploading__title">{{file.name}}</span>
+                    </div>
+
+                    <div class="uploading__subtitle">
+                        <span class="uploading__left-subtitle">{{file.size | sizeFormat}}</span>
+                        <div class="uploading__right-subtitle">
+                        </div>
+                    </div>
+                </div>
+
+
+                <button class="rt-upload-files__button" (click)="_removeFile()">
+                    <svg width="14" height="18" viewBox="0 0 14 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1 16C1 16.5304 1.21071 17.0391 1.58579 17.4142C1.96086 17.7893 2.46957 18 3 18H11C11.5304 18 12.0391 17.7893 12.4142 17.4142C12.7893 17.0391 13 16.5304 13 16V4H1V16ZM3 6H11V16H3V6ZM10.5 1L9.5 0H4.5L3.5 1H0V3H14V1H10.5Z"
+                              fill="#777777"/>
+                    </svg>
+                </button>
+            </div>
+        </ng-container>
     </div>
 
 
@@ -129,7 +130,6 @@
         <div class="error__info">
             <span class="error__title" *ngIf="errorServer.title">{{errorServer.title}}</span>
             <span class="error__message" *ngIf="errorServer.message">{{errorServer.message}}</span>
-            <span class="error__message" *ngIf="errorServer.length">{{errorServer[0]}}</span>
         </div>
         <button class="error__close" (click)="clearErrorServer()">
             <!--      <img src="assets/close.svg">-->
